@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::resource('todo', TodoController::class);
+    Route::post('/todo/done/{id}', [TodoController::class, 'todoDone'])->name('todo.done');
 });
 
 

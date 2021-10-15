@@ -2,7 +2,9 @@
 
 @section('content')
 
-
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Dashboard</h1>
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -19,16 +21,16 @@
                 <div class="card-body">
                     <x-validation-display/>
 
-                    <form action="{{ route('todo.store') }}" method="POST">
+                    <form action="{{ route('todo.update', [$todo->id]) }}" method="POST">
                         @csrf
+                        @method('PUT')
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control" name="title" placeholder="Title here" aria-describedby="emailHelp">
+                            <input type="text" class="form-control" name="title" value="{{ $todo->title }}" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea name="description" class="form-control" id="" cols="30" rows="3" placeholder="Description here"></textarea>
-                            {{-- <input type="text" class="form-control" name="description" placeholder="Title here" aria-describedby="emailHelp"> --}}
+                            <textarea name="description" class="form-control" id="" cols="30" rows="3" placeholder="Description here">{{ $todo->description }}</textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -38,11 +40,4 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
 @endsection
