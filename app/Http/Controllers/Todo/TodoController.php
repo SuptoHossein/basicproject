@@ -16,24 +16,16 @@ class TodoController extends Controller
      */
     public function index()
     {
-        // $todos = Todo::where('status', 0)->orderBy('created_at', 'DESC')->get();
-        // $complete = Todo::where('status', 1)->orderBy('updated_at', 'DESC')->get();
+        $todos = Todo::where('status', 0)->orderBy('created_at', 'DESC')->get();
+        $complete = Todo::where('status', 1)->orderBy('updated_at', 'DESC')->get();
 
-        $todos = Todo::get();
-
-        dd($todos);
-
-
-
-
-        dd($todos);
+        // $todos = Todo::get();
+        //
+        // $today = date('d-m-Y');
+        // echo $today;
 
 
-        $today = date('d-m-Y');
-        echo $today;
-
-
-        // return view('todo.index', compact(['todos', 'complete']));
+        return view('todo.index', compact(['todos', 'complete']));
     }
 
     /**

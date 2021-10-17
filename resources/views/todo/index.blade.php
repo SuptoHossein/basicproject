@@ -11,9 +11,6 @@
     <div class="row">
 
 
-        {{ date('D m, Y') }}
-
-
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -34,7 +31,6 @@
                                 <th scope="col">Status</th>
                                 <th scope="col">Make as done</th>
                                 <th scope="col">Action</th>
-                                <th scope="col">Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -72,26 +68,6 @@
                                             </form>
                                         </div>
                                     </div>
-                                </td>
-                                <td>
-
-
-                                    {{-- @php echo $today = date('d-m-Y') @endphp --}}
-
-                                    {{ $todo->created_at->format('d-m-Y'),  }}
-
-
-
-
-
-                                    {{ date('d-m-Y') }}
-
-                                    {{-- @if ($today == $todo->created_at)
-                                        {{ yes }}
-                                    @endif --}}
-{{--
-                                    {{ date('D m, Y') }}
-                                    {{ $todo->created_at }} --}}
                                 </td>
                             </tr>
 
